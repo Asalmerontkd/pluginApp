@@ -1,0 +1,95 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="io-mariachi-plugin-blink" version="0.0.1" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+    <name>AllianzBlink</name>
+    <js-module name="AllianzBlink" src="www/AllianzBlink.js">
+        <clobbers target="cordova.plugins.AllianzBlink" />
+    </js-module>
+
+    <platform name="android">
+
+    	<framework src="src/android/plugin.gradle" custom="true" type="gradleReference"/>
+
+	  <config-file target="config.xml" parent="/*">
+	    <feature name="AllianzBlink">
+	      <param name="android-package"
+	             value="io.mariachi.allianzvision"/>
+	    </feature>
+	  </config-file>
+		
+		<source-file src="src/android/io/mariachi/allianzvision/MainActivity.java" 
+	target-dir="src/io/mariachi/allianzvision" />
+		<source-file src="src/android/io/mariachi/allianzvision/utils/Utils.java" 
+	target-dir="src/io/mariachi/allianzvision/utils" />
+		<source-file src="src/android/io/mariachi/allianzvision/ui/Faces.java" 
+	target-dir="src/io/mariachi/allianzvision/ui" />
+		<source-file src="src/android/io/mariachi/allianzvision/ui/FaceGraphic.java" 
+	target-dir="src/io/mariachi/allianzvision/ui" />
+		<source-file src="src/android/io/mariachi/allianzvision/ui/cvision/CameraSourcePreview.java" 
+	target-dir="src/io/mariachi/allianzvision/ui/cvision" />
+		<source-file src="src/android/io/mariachi/allianzvision/ui/cvision/GraphicOverlay.java" 
+	target-dir="src/io/mariachi/allianzvision/ui/cvision" />
+
+		<source-file src="src/android/res/layout/activity_face.xml" 
+	target-dir="res/layout" />
+
+		<source-file src="src/android/res/mipmap-hdpi/ic_launcher.png" target-dir="res/mipmap-hdpi"/>
+        <source-file src="src/android/res/mipmap-mdpi/ic_launcher.png" target-dir="res/mipmap-mdpi"/>
+        <source-file src="src/android/res/mipmap-xhdpi/ic_launcher.png" target-dir="res/mipmap-xhdpi"/>
+        <source-file src="src/android/res/mipmap-xxhdpi/ic_launcher.png" target-dir="res/mipmap-xxhdpi"/>
+
+        <source-file src="src/android/res/mipmap-hdpi/ic_launcher_round.png" target-dir="res/mipmap-hdpi"/>
+        <source-file src="src/android/res/mipmap-mdpi/ic_launcher_round.png" target-dir="res/mipmap-mdpi"/>
+        <source-file src="src/android/res/mipmap-xhdpi/ic_launcher_round.png" target-dir="res/mipmap-xhdpi"/>
+        <source-file src="src/android/res/mipmap-xxhdpi/ic_launcher_round.png" target-dir="res/mipmap-xxhdpi"/>
+
+        <source-file src="src/android/res/mipmap-hdpi/accept.png" target-dir="res/mipmap-hdpi"/>
+        <source-file src="src/android/res/mipmap-mdpi/accept.png" target-dir="res/mipmap-mdpi"/>
+        <source-file src="src/android/res/mipmap-xhdpi/accept.png" target-dir="res/mipmap-xhdpi"/>
+        <source-file src="src/android/res/mipmap-xxhdpi/accept.png" target-dir="res/mipmap-xxhdpi"/>
+
+        <source-file src="src/android/res/mipmap-hdpi/back.png" target-dir="res/mipmap-hdpi"/>
+        <source-file src="src/android/res/mipmap-mdpi/back.png" target-dir="res/mipmap-mdpi"/>
+        <source-file src="src/android/res/mipmap-xhdpi/back.png" target-dir="res/mipmap-xhdpi"/>
+        <source-file src="src/android/res/mipmap-xxhdpi/back.png" target-dir="res/mipmap-xxhdpi"/>
+
+        <source-file src="src/android/res/mipmap-hdpi/camara.png" target-dir="res/mipmap-hdpi"/>
+        <source-file src="src/android/res/mipmap-mdpi/camara.png" target-dir="res/mipmap-mdpi"/>
+        <source-file src="src/android/res/mipmap-xhdpi/camara.png" target-dir="res/mipmap-xhdpi"/>
+        <source-file src="src/android/res/mipmap-xxhdpi/camara.png" target-dir="res/mipmap-xxhdpi"/>
+
+        <source-file src="src/android/res/mipmap-hdpi/retake.png" target-dir="res/mipmap-hdpi"/>
+        <source-file src="src/android/res/mipmap-mdpi/retake.png" target-dir="res/mipmap-mdpi"/>
+        <source-file src="src/android/res/mipmap-xhdpi/retake.png" target-dir="res/mipmap-xhdpi"/>
+
+        <source-file src="src/android/res/values/attrs.xml" target-dir="res/values"/>
+        <source-file src="src/android/res/values/colors.xml" target-dir="res/values"/>
+        <source-file src="src/android/res/values/dimens.xml" target-dir="res/values"/>
+        <source-file src="src/android/res/values/styles.xml" target-dir="res/values"/>
+
+
+
+		<config-file target="AndroidManifest.xml" parent="/*">
+	        <uses-permission android:name="android.permission.INTERNET" />
+		    <uses-permission android:name="android.permission.CAMERA" />
+
+		    <uses-feature android:name="android.hardware.camera" />
+		    <uses-feature android:name="android.hardware.camera.autofocus" />
+	    </config-file>
+
+		<config-file target="AndroidManifest.xml" parent="/manifest/application">
+            <activity android:name="MainActivity">
+	            <intent-filter>
+	                <action android:name="android.intent.action.MAIN" />
+	            </intent-filter>
+	        </activity>
+	        <activity
+            android:name="ui.Faces"
+            android:theme="@style/AppTheme.NoActionBar" />
+        </config-file>
+
+
+	</platform>
+
+
+
+</plugin>
